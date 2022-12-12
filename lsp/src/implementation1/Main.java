@@ -12,12 +12,12 @@ public class Main {
         System.out.println("Square area is: "+ s.getArea());
 
         Shape r1 = new Rectangle(10,20);
-//        r1.setSize(10, 10);   // here goes the error
+        r1.setSize(10, 10);   // here goes the error
         System.out.println("Shape(Rectangle) area is: "+ r1.getArea());
 
-//        Shape s1 = new Square(20); // here goes the error
-//        s1.setSize(); // here goes the error.
-//        System.out.println("Shape(Square) area is: "+ s1.getArea());
+        Shape s1 = (Shape) new Square(20); // here goes the error
+        s1.setSize(10,10); // here goes the error.
+        System.out.println("Shape(Square) area is: "+ s1.getArea());
 
     }
 }
