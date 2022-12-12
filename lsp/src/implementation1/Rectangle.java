@@ -11,10 +11,6 @@ public class Rectangle implements Shape {
         this.height = height;
     }
 
-    public Rectangle() {
-
-    }
-
     public double getArea(){
         return width*height;
     }

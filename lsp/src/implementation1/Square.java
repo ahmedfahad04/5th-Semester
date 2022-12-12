@@ -13,4 +13,8 @@ public class Square extends rectangle {
     void setSize(double s) {
         super.setSize(s, s);
     }
+
+    double getArea(){
+        return side*side;
+    }
 }
