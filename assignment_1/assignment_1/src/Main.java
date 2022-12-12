@@ -88,13 +88,23 @@ public class Main {
     public static void main(String[] args) {
         Rectangle rectangle = new Rectangle(10, 20);
         Square square = new Square(20);
+        AreaCalculator areaCalculator = new AreaCalculator();
+        Shape recShape = new Rectangle(2,2);
+        Shape squareShape = new Square(5);
 
         rectangle.setSize(10, 25);
         square.setSize(25);
 
-        AreaCalculator areaCalculator = new AreaCalculator();
         areaCalculator.calculateArea(rectangle);
         areaCalculator.calculateArea(square);
+
+        System.out.println(recShape.calculateArea());
+        System.out.println(squareShape.calculateArea());
+
+        // We can't change the size of each shape through recShape/squareShape because
+        // size property is specific for each kind of Shape,  it's not same for all
+        // however we can relate a Rhombus with Square, Parallelogram with Rectangle
+        // as in terms of SIZE, these pairs are similar/substitutable.
 
     }
 }
