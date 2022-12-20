@@ -9,83 +9,10 @@
 //
 //  Thus using Interface, we can resolve the LSP Violation.
 
-interface Shape {
-
-    double calculateArea();
-    void setTopLeft(double x, double y);
-    void draw();
-
-}
-
-class Square implements Shape {
-
-    double side;
-
-    public Square(double side) {
-        this.side = side;
-    }
-
-    void setSize(double s) {
-        this.side = s;
-    }
-
-    @Override
-    public double calculateArea() {
-        System.out.print("Square Area: ");
-        return side * side;
-    }
-
-    @Override
-    public void setTopLeft(double x, double y) {
-        // implementation
-    }
-
-    @Override
-    public void draw() {
-        System.out.print("Square - ");
-    }
-}
-
-class Rectangle implements Shape {
-    double width;
-    double height;
-
-    public Rectangle(double width, double height) {
-        this.width = width;
-        this.height = height;
-    }
-
-    public void setSize(double w, double h) {
-        this.width = w;
-        this.height = h;
-    }
-
-    @Override
-    public double calculateArea() {
-        System.out.print("Rectangle Area: ");
-        return width * height;
-    }
-
-    @Override
-    public void setTopLeft(double x, double y) {
-        // implementation
-    }
-
-    @Override
-    public void draw() {
-        // implementation
-    }
-}
-
-class AreaCalculator {
-    public void calculateArea(Shape s) {
-        System.out.println(s.calculateArea());
-    }
-}
-
 
 public class Main {
     public static void main(String[] args) {
+
         Rectangle rectangle = new Rectangle(10, 20);
         Square square = new Square(20);
         AreaCalculator areaCalculator = new AreaCalculator();
@@ -102,9 +29,10 @@ public class Main {
         System.out.println(squareShape.calculateArea());
 
         // We can't change the size of each shape through recShape/squareShape because
-        // size property is specific for each kind of Shape,  it's not same for all
-        // however we can relate a Rhombus with Square, Parallelogram with Rectangle
-        // as in terms of SIZE, these pairs are similar/substitutable.
+        // size property is specific for each kind of Shape, it's not same for all.
+        // However, we can relate a Rhombus with Square, Parallelogram with Rectangle
+        // as in terms of SIZE, these pairs are similar/substitutable but Square &
+        // Rectangle aren't.
 
     }
 }
