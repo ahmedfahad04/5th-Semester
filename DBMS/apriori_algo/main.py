@@ -101,7 +101,7 @@ if __name__ == '__main__':
     # I1 I2 | I5 
     # A | B
     # p(B|A) = support_cnt(AUB) / support_cnt(A)
-    query_data = "I2 | I1 I3"
+    # query_data = "I2 | I1 I3"
     A, B= query_data.split('| ')
     AUB = sorted((A+B).strip().split(' '))
     A = tuple(A.strip().split(' '))
@@ -110,18 +110,19 @@ if __name__ == '__main__':
     support_cnt_A = 0
         
     for items, item_count in feasible_product.items():
-        
-        if len(items) == len(A):
-            if checkEquality(items, A):
-                support_cnt_A = item_count
-                print("A: ", items, item_count)
                 
         if len(items) == len(AUB):
             if checkEquality(items, AUB):
                 support_cnt_AUB = item_count
-                print("AUB: ", items, item_count)
-                
-    
+                # print("p(AUB): ", items, item_count)
+        
+        if len(items) == len(A):
+            if checkEquality(items, A):
+                support_cnt_A = item_count
+                # print("P(A): ", items, item_count)
+             
+    print("p(AUB): ", tuple(AUB), support_cnt_AUB)   
+    print("P(A): ", A, support_cnt_A)
     print("P(B|A): ", (support_cnt_AUB / support_cnt_A)*100, "%")
         
         
