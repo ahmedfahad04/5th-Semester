@@ -31,6 +31,7 @@ def clean_query_data(prod_list):
     return new_list
 
 def combine(input_list, length, min_support_cnt):
+    
     # Base case: if the length of the combination is 0, return an empty list
     if length == 0:
         return [[]]
@@ -38,19 +39,17 @@ def combine(input_list, length, min_support_cnt):
     # Recursive case: if the length of the combination is greater than 0,
     # generate all combinations of the sublists of the input list
     result = []
-    cnt = {}
     for i, element in enumerate(input_list):
         sublist = input_list[i+1:]
-        for combination in combine(sublist, length-1, min_support_cnt):
+        if count_item_frequency(sublist) >= min_support_cnt:
+            for combination in combine(sublist, length-1, min_support_cnt):
 
-            tmp = [element] + combination
-            # print("TMP: ", tuple(tmp), "len: ", count_item_frequency(tmp))
-            x = count_item_frequency(tmp)
-            if x >= min_support_cnt:
-                # print(x)
-                result.append([element] + combination)
+                tmp = [element] + combination
+                x = count_item_frequency(tmp)
+                if x >= min_support_cnt:
+                    result.append([element] + combination)
+                
     return result
-
 
 if __name__ == '__main__':
     
@@ -61,7 +60,7 @@ if __name__ == '__main__':
     fp = open('data.txt', 'r')
     lines = fp.readlines()
 
-    # dictionary to store query_data
+    # store query_data
     inventory = dict()
     products = set()
 
@@ -74,16 +73,18 @@ if __name__ == '__main__':
         for item in items:
             products.add(item)
 
+
     products = sorted(list(products))
+    
 
     # Generate all combinations of the products with product count >= min_support_cnt
     ls = products
     feasible_product = {}
+    
     for i in range(1, len(ls)-1):
         ls_of_product = combine(ls, i, min_support_cnt)
         for product in ls_of_product:
             feasible_product[tuple(product)] = count_item_frequency(product)
-
 
     # read query size
     query = int(input("Enter item size: "))
@@ -93,15 +94,20 @@ if __name__ == '__main__':
         if len(items) == query:
             print(items, item_count)
             
+    for items, item_count in feasible_product.items():
+        print(items, item_count)
+            
     
     
     # calculate confidence
-    print("\nConfidence: ")
-    query_data = input("Enter query (ex. I2 I3 | I1): ")
     # I1 I2 | I5 
     # A | B
     # p(B|A) = support_cnt(AUB) / support_cnt(A)
     # query_data = "I2 | I1 I3"
+    
+    print("\nConfidence: ")
+    query_data = input("Enter query (ex. I2 I3 | I1): ")
+    
     A, B= query_data.split('| ')
     AUB = sorted((A+B).strip().split(' '))
     A = tuple(A.strip().split(' '))
@@ -114,14 +120,12 @@ if __name__ == '__main__':
         if len(items) == len(AUB):
             if checkEquality(items, AUB):
                 support_cnt_AUB = item_count
-                # print("p(AUB): ", items, item_count)
         
         if len(items) == len(A):
             if checkEquality(items, A):
                 support_cnt_A = item_count
-                # print("P(A): ", items, item_count)
              
-    print("p(AUB): ", tuple(AUB), support_cnt_AUB)   
+    print("\nP(AUB): ", tuple(AUB), support_cnt_AUB)   
     print("P(A): ", A, support_cnt_A)
     print("P(B|A): ", (support_cnt_AUB / support_cnt_A)*100, "%")
         
