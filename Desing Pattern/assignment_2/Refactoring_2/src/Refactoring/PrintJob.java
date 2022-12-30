@@ -1,5 +1,4 @@
-package RefactoredCode;
-
+package Refactoring;
 import java.util.Queue;
 
 /*

@@ -1,4 +1,4 @@
-package BasicRequirements;
+package Refactoring;
 
 public class PrioritySetting {
 }

@@ -1,4 +1,4 @@
-package BasicRequirements;
+package Refactoring;
 
 /*
 TonerSaveMode additionally contains a field named tonerSavingLevel. 

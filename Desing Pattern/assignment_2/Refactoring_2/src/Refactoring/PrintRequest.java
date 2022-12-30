@@ -1,4 +1,4 @@
-package RefactoredCode;
+package Refactoring;
 
 import javax.swing.text.Document;
 

@@ -1,4 +1,4 @@
-package RefactoredCode;
+package ActualCode;
 
 /*
 TonerSaveMode additionally contains a field named tonerSavingLevel. 
