@@ -7,6 +7,16 @@ Similarly, if tonerSavingLevel is medium and low, two different algorithms are u
 a single algorithm is used to adjust page size and orientation in a way that the number of pages required is reduced.
  */
 
+/*
+    1. Duplicate Code [resolve: strategy Pattern]
+    {saveToner() in TonerSaveMode}
+
+    2. Refused Bequest []
+    {boost(), savePage() in TonerSaveMode; saveToner(), savePage() in BoosterMode;
+     saveToner(), boost() in PageSaveMode}
+
+ */
+
 public abstract class PrintMode {
     private int numberOfPages;
     private int pageSize;

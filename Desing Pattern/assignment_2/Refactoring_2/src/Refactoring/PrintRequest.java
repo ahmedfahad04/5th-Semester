@@ -1,6 +1,5 @@
 package Refactoring;
 
-import javax.swing.text.Document;
 
 public class PrintRequest {
 

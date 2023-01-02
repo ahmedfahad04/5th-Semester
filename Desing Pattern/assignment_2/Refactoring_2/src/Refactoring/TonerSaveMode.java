@@ -1,39 +1,11 @@
 package Refactoring;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+public class TonerSaveMode {
 
-public class TonerSaveMode extends PrintMode{
+    private final MyPrintMode printMode = new MyPrintMode();
 
-    private static List<IColorIntensity> colorIntensityList = new ArrayList<>() {{
-        new HighColorIntensity();
-        new MediumColorIntensity();
-        new LowColorIntensity();
-    }};
-
-    private String tonerSavingLevel;
-    private String colorIntensityLevel = "";
-
-    @Override
     public void saveToner() {
-
-        // duplicate code
-        // solve with strategy pattern
-
-        for(IColorIntensity intensity: colorIntensityList){
-            if(intensity.matchColorIntensity(this.tonerSavingLevel))
-                colorIntensityLevel = intensity.getResponse();
-        }
+        printMode.saveToner();
     }
 
-    @Override
-    public void savePage() {
-
-    }
-
-    @Override
-    public void boost() {
-
-    }
 }
