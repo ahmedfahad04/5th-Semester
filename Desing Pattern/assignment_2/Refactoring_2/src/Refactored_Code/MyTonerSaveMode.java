@@ -1,4 +1,4 @@
-package Refactoring;
+package Refactored_Code;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,9 @@ import java.util.List;
 class MyPrintMode extends PrintMode {
     private String tonerSavingLevel;
     private String colorIntensityLevel = "";
-    private static List<IColorIntensity> colorIntensityList = new ArrayList<>() {{
+
+
+    private static final List<IColorIntensity> colorIntensityList = new ArrayList<>() {{
         new HighColorIntensity();
         new MediumColorIntensity();
         new LowColorIntensity();

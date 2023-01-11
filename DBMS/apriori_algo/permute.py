@@ -1,9 +1,3 @@
-elm = [1, 2, 3, 4]
-
-# 1 2 3 4
-# 12 13 14
-# 23 24
-# 34
 
 def count_item_frequency(sub_set):
     
@@ -28,9 +22,29 @@ def clean_data(prod_list):
         
     return new_list
 
+def combine(input_list, length, min_support_cnt):
+    # Base case: if the length of the combination is 0, return an empty list
+    if length == 0:
+        return [[]]
+
+    # Recursive case: if the length of the combination is greater than 0,
+    # generate all combinations of the sublists of the input list
+    result = []
+    for i, element in enumerate(input_list):
+        print("I: ", i, element)
+        sublist = input_list[i+1:]
+        for combination in combine(sublist, length-1, min_support_cnt):
+            
+            tmp = [element] + combination
+            x = count_item_frequency(tmp)
+            if x >= min_support_cnt:
+                print(tmp)
+                result.append([element] + combination)
+    return result  
+
 
 # read data form file
-fp = open('data.txt', 'r')
+fp = open('apriori_algo/data.txt', 'r')
 lines = fp.readlines()
 
 # dictionary to store data
@@ -49,40 +63,18 @@ for line in lines:
         
         
 products = sorted(list(products))
-# print(products)
+print(products)
 
 
 
-def combine(input_list, length, min_support_cnt):
-    # Base case: if the length of the combination is 0, return an empty list
-    if length == 0:
-        return [[]]
-
-    # Recursive case: if the length of the combination is greater than 0,
-    # generate all combinations of the sublists of the input list
-    result = []
-    cnt = {}
-    for i, element in enumerate(input_list):
-        sublist = input_list[i+1:]
-        for combination in combine(sublist, length-1, min_support_cnt):
-            
-            tmp = [element] + combination
-            # print("TMP: ", tuple(tmp), "len: ", count_item_frequency(tmp))
-            x = count_item_frequency(tmp)
-            if x >= min_support_cnt:
-                # print(x)
-                result.append([element] + combination)
-    return result  
-
-
-# # Test the function with a list of integers
-# ls = products 
-# ans = {}
-# for i in range(1, len(ls)-1):
-#     ls_of_product = combine(ls, i, min_support_cnt)
-#     for product in ls_of_product:
-#         ans[tuple(product)] = count_item_frequency(product)
-#         # print(product, count_item_frequency(product))   
+# Test the function with a list of integers
+ls = products 
+ans = {}
+for i in range(1, len(ls)-1):
+    ls_of_product = combine(ls, i, min_support_cnt)
+    for product in ls_of_product:
+        ans[tuple(product)] = count_item_frequency(product)
+        # print(product, count_item_frequency(product))   
 
 # for key, value in ans.items():
-#     print(len(key), value)
+#     print(key, value)

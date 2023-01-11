@@ -1,9 +1,9 @@
-T1: I1 I2 I5
-T2: I2 I4
-T3: I2 I3
-T4: I1 I2 I4
-T5: I1 I3
-T6: I2 I3
-T7: I1 I3
-T8: I1 I2 I3 I5
-T9: I1 I2 I3
+T1: Bread Butter Chips
+T2: Butter Coke
+T3: Butter Sauce
+T4: Bread Butter Coke
+T5: Bread Sauce
+T6: Butter Sauce
+T7: Bread Sauce
+T8: Bread Butter Sauce Chips
+T9: Bread Butter Sauce
