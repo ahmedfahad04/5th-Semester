@@ -6,7 +6,10 @@ import seaborn as sns
 data = pd.read_csv('UCI Dataset/ballons.csv')
 target = data.columns[-1]
 
+# Actual Formula
+# P(y|X) = P(X|y) * P(y) / P(X)             Here X is called the feature like Colors, Size, Act
 
+# P(y|X)
 def prior_probability(df, target):
       
     rows = len(df)
@@ -28,8 +31,7 @@ def naive_bayes_classifer(df, X_test, Y_test):
     rows = len(df[Y_test])
     class_count = df[Y_test].value_counts() # count of each class
     class_value = df[Y_test].unique()       # ['T', 'F']
-
-    for feature in features:
+    for feature in features:                # Colors, Size, Act, Age
         distinct = df[feature].unique()     # ['YELLOW', 'RED', 'GREEN']
         
         for f_value in distinct:            # 'YELLOW'
@@ -37,12 +39,12 @@ def naive_bayes_classifer(df, X_test, Y_test):
             feature_value_false = 0
             
             for i in range(len(df)):        # for each row
-                if df[Y_test][i] == class_value[0] and df[feature][i] == f_value:    # if target is true
+                if df[Y_test][i] == class_value[0] and df[feature][i] == f_value:    # if target is true P(Yellow|T)
                     feature_value_true+=1
-                elif df[Y_test][i] == class_value[1] and df[feature][i] == f_value:    # if target is false
+                elif df[Y_test][i] == class_value[1] and df[feature][i] == f_value:    # if target is false P(Yellow|F)
                     feature_value_false+=1
                                 
-            feature_prob_given_true.append({f_value: feature_value_true/class_count['T']})
+            feature_prob_given_true.append({f_value: feature_value_true/class_count['T']})  # P(Yellow|T)
             feature_prob_given_false.append({f_value: feature_value_false/class_count['F']})
     
     # print(feature_prob_given_true)
