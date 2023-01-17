@@ -1,4 +1,4 @@
-package Refactoring;
+package Refactored_Code;
 
 public class HighColorIntensity implements IColorIntensity{
 

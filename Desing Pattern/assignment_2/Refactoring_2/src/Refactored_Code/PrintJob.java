@@ -1,4 +1,4 @@
-package Refactoring;
+package Refactored_Code;
 import java.util.Queue;
 
 /*
@@ -9,13 +9,8 @@ The two methods in PrintJob class namely pullJob and changePriority help to send
 
 public class PrintJob {
     private Queue<PrintRequest> printRequests;
-    private PrioritySetting prioritySetting;
 
     private void pullJob(){
         System.out.println("Send specific job on priority settings");
-    }
-
-    private void changePriority(){
-        System.out.println("Change priority of job");
     }
 }

@@ -9,6 +9,7 @@ The two methods in PrintJob class namely pullJob and changePriority help to send
  */
 
 public class PrintJob {
+
     private Queue<PrintRequest> printRequests;
     private PrioritySetting prioritySetting;
 
@@ -19,4 +20,5 @@ public class PrintJob {
     private void changePriority(){
         System.out.println("Change priority of job");
     }
+
 }

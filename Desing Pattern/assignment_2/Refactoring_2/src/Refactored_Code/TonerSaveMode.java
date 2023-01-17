@@ -1,11 +1,11 @@
-package Refactoring;
+package Refactored_Code;
 
 public class TonerSaveMode {
 
-    private final MyPrintMode printMode = new MyPrintMode();
+    private final MyTonerSaveMode tonerSaveMode = new MyTonerSaveMode();
 
     public void saveToner() {
-        printMode.saveToner();
+        tonerSaveMode.saveToner();
     }
 
 }

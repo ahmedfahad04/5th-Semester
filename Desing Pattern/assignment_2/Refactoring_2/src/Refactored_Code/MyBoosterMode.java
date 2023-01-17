@@ -1,4 +1,4 @@
-package Refactoring;
+package Refactored_Code;
 
 public class MyBoosterMode extends PrintMode {
 

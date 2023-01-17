@@ -1,4 +1,4 @@
-package Refactored_Code_2;
+package Refactored_Code;
 
 public class PrintPreview {
 

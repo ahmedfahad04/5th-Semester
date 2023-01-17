@@ -1,7 +1,7 @@
-package Refactored_Code.Refactored_Code;
+package Refactored_Code_2;
 
 public interface IColorIntensity {
 
     boolean matchColorIntensity(String tonerSavingLevel);
-    String getResponse();
+    String getColorIntensity();
 }

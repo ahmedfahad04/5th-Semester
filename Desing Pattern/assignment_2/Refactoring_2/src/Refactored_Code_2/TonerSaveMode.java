@@ -1,11 +1,24 @@
-package Refactored_Code.Refactored_Code;
+package Refactored_Code_2;
 
-public class TonerSaveMode {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final MyTonerSaveMode tonerSaveMode = new MyTonerSaveMode();
+public class TonerSaveMode extends PrintMode{
 
-    public void saveToner() {
-        tonerSaveMode.saveToner();
+    private String tonerSavingLevel;
+    private String colorIntensityLevel = "";
+
+    private static final List<IColorIntensity> colorIntensityList = new ArrayList<>() {{
+        new HighColorIntensity();
+        new MediumColorIntensity();
+        new LowColorIntensity();
+    }};
+
+    @Override
+    public void applyConfiguration() {
+        for(IColorIntensity intensity: colorIntensityList){
+            if(intensity.matchColorIntensity(this.tonerSavingLevel))
+                this.colorIntensityLevel = intensity.getColorIntensity();
+        }
     }
-
 }

@@ -1,19 +1,13 @@
-package Refactored_Code.Refactored_Code;
+package Refactored_Code_2;
 
 /*
 The PageSaveMode contains another method called renderPreview that shows a preview of the updated document.
  */
 
-public class PageSaveMode {
+public class PageSaveMode extends PrintMode{
 
-    private final MyPageSaveMode pageSaveMode = new MyPageSaveMode();
-
-    private void renderPreview(){
-        System.out.println("Shows preview of updated document");
+    @Override
+    public void applyConfiguration() {
+        System.out.println("Saving page...");
     }
-
-    public void savePage() {
-        pageSaveMode.savePage();
-    }
-
 }

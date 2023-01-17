@@ -9,6 +9,7 @@ public class PageSaveMode extends PrintMode {
     private void renderPreview(){
         System.out.println("Shows preview of updated document");
     }
+
     @Override
     public void saveToner() {
 

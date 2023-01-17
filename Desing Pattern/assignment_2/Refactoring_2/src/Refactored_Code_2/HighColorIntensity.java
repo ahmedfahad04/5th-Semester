@@ -1,4 +1,4 @@
-package Refactored_Code.Refactored_Code;
+package Refactored_Code_2;
 
 public class HighColorIntensity implements IColorIntensity {
 
@@ -8,7 +8,7 @@ public class HighColorIntensity implements IColorIntensity {
     }
 
     @Override
-    public String getResponse() {
+    public String getColorIntensity() {
         return "High Color Intensity";
     }
 }

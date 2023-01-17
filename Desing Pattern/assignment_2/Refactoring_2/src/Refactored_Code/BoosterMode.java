@@ -1,4 +1,4 @@
-package Refactoring;
+package Refactored_Code;
 
 /*
 The BoosterMode increases the color intensity up to a maximum acceptable level that is set via its intensityThreshold field.
