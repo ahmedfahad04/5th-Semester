@@ -7,7 +7,7 @@ const int total_transaction = 100;
 
 vector<pair<pair<char, int>, string>> transaction, a;
 set<int> Node[total_transaction];
-set<int> tr_size;
+set<int> transaction_size;
 
 int vis[total_transaction] = {0};
 int parent = 0;
@@ -55,14 +55,31 @@ int main()
 
     if (new_file.is_open())
     {
-        string sa;
-        while (getline(new_file, sa))
+        string s;
+        string delimiter = "(";
+        string delimiter2 = ")";
+        size_t posOpen = 0, posClose = 0;
+        string serial, variable;
+        char mode;
+        const char * sa;
+        
+        while (getline(new_file, s))
         {
-            pair<pair<char, int>, string> operation;
+            pair<pair<char, int>, string> operation;    //  R1(A)
 
-            operation.first.first = sa[0];
-            operation.first.second = sa[1] - 48;
-            operation.second = sa[3];
+            mode = s[0];
+
+            posOpen = s.find(delimiter);
+            serial = s.substr(1, posOpen-1);
+
+            s.erase(0, posOpen + delimiter.length());
+            posClose = s.find(delimiter2);
+            variable = s.substr(0, posClose);
+            sa = serial.data();
+
+            operation.first.first = mode;                     //  R
+            operation.first.second = atoi(sa);                //  1
+            operation.second = variable;                         //  (A)
             transaction.push_back(operation);
         }
         new_file.close();
@@ -73,11 +90,11 @@ int main()
 
     for (int i = 0; i < transaction.size(); i++)
     {
-        char current_operator_type = transaction[i].first.first;
-        int current_transaction_no = transaction[i].first.second;
-        string current_variable = transaction[i].second;
+        char current_operator_type = transaction[i].first.first;    // R or W
+        int current_transaction_no = transaction[i].first.second;   // 1,2,3,....
+        string current_variable = transaction[i].second;            // (variable)
 
-        tr_size.insert(current_transaction_no);
+        transaction_size.insert(current_transaction_no);
         for (int j = i + 1; j < transaction.size(); j++)
         {
             char next_operator_type = transaction[j].first.first;
@@ -94,13 +111,13 @@ int main()
         }
     }
 
-    for (int tr : tr_size)
+    for (int tr : transaction_size)
     {
         dfs(tr);
     }
 
     if (flag)
-        cout << "\nconflict serializable\n";
+        cout << "\n\nConflict serializable\n";
     else
-        cout << "\nnot conflict serializable\n";
+        cout << "\n\nNot conflict serializable\n";
 }
