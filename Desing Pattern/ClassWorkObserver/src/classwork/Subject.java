@@ -6,7 +6,10 @@ import java.util.List;
 public class Subject {
     // represents a file
 
-    public Subject() {};
+    String message;
+
+    public Subject() {
+    };
     List<Observer> observers = new ArrayList<>();
 
     public void registerObserver(Observer observer){
@@ -17,7 +20,8 @@ public class Subject {
         observers.remove(observer);
     }
 
-    public void Notify() {
+    public void Notify(String message) {
+        this.message = message;
         for(Observer observer: observers){
             observer.Update(this);
         }

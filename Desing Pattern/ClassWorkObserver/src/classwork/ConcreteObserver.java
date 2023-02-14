@@ -13,6 +13,6 @@ public class ConcreteObserver extends Observer{
 
     @Override
     public void Update(Subject theChangedSubject) {
-
+        System.out.println(this.observerName + " => " + theChangedSubject.message);
     }
 }
