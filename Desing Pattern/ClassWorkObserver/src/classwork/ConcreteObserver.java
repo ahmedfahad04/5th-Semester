@@ -2,9 +2,6 @@ package classwork;
 
 public class ConcreteObserver extends Observer{
 
-    String fileName;
-    String typeOfChange;
-    String timeOfChange;
     String observerName;
 
     public ConcreteObserver(String observerName) {
