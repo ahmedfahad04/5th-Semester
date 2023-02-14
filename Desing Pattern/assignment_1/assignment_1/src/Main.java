@@ -15,9 +15,11 @@ public class Main {
 
         Rectangle rectangle = new Rectangle(10, 20);
         Square square = new Square(20);
-        AreaCalculator areaCalculator = new AreaCalculator();
+
         Shape recShape = new Rectangle(2,2);
         Shape squareShape = new Square(5);
+        
+        AreaCalculator areaCalculator = new AreaCalculator();
 
         rectangle.setSize(10, 25);
         square.setSize(25);

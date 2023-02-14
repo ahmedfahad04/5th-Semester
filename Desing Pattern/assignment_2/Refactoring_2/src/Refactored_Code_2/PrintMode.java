@@ -19,7 +19,7 @@ a single algorithm is used to adjust page size and orientation in a way that the
     {int numberOfPage, int pageSize in PrintMode}
 
     4. Black Sheep [resolve: Move Method]
-    {changePriority() in PrintJob, renderPreview in PageSaveMode}
+    {changePriority() in PrintJob, renderPreview() in PageSaveMode}
 
     5. Feature Envy [resolve: Move Method]
     {changePriority() in PrintJob}

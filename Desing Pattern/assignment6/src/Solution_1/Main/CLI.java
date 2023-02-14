@@ -5,7 +5,6 @@ import Solution_1.xmlParser.*;
 import java.util.List;
 import Solution_1.ArgumentManager.*;
 
-
 /*
     Smell: Duplicate Code (If-Else ladder)
     resolution: STRATEGY PATTERN
@@ -28,14 +27,13 @@ public class CLI {
                 new useArg()
         );
 
-        String[] cmdArgs = input.split("");
+        String[] cmdArgs = input.split(" e");
 
         for (ArgStrategy strategy : strategies) {
             if (strategy.match(cmdArgs[0])) {
                 strategy.executeCMD(cmdArgs[1]);
                 return;
             }
-
         }
 
         System.out.println("UNKNOWN COMMAND: " + cmdArgs[0] + "\nType `help;` for commands list");

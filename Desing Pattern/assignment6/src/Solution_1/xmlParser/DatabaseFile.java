@@ -92,7 +92,6 @@ public class DatabaseFile extends XMLFiles {
             print(dataString.trim());
         }
     }
-
     public void readData(String id) {
         // just Trying the Xpath API, instead of using DOM API
         try {

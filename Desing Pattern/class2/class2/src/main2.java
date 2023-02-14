@@ -49,7 +49,7 @@ public class main2 {
         if((isCreamCoffee()) && IsCreamPowderSufficient){
             return true;
         }
-    }
+    }checkSugarCoffeeAmount
 
     public static bool checkSugarCoffeeAmount() {
         if((isSugerCoffee()) && IsSugarSufficient){

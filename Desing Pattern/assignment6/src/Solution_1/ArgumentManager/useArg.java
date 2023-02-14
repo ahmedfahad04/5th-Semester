@@ -14,7 +14,7 @@ public class useArg implements ArgStrategy{
     @Override
     public void executeCMD(String inputCMD) {
 
-        String[] cmdArgs = inputCMD.split("");
+        String[] cmdArgs = inputCMD.split(" ");
         RegistryFile registry = RegistryFile.getInstance(constants.DATA_XML_PATH);
         String path = registry.getDatabasePath(cmdArgs[1], false);
         DatabaseFile currentDb;

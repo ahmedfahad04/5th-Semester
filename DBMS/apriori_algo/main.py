@@ -113,6 +113,7 @@ class AprioriAlgo:
                 self.feasible_product[tuple(product)] = self.count_item_frequency(product)
 
         print("All Products with frequencies")
+        pprint.pprint(self.feasible_product)
         return self.feasible_product
 
     def showSpecificProduct(self, product_amount):
@@ -120,13 +121,13 @@ class AprioriAlgo:
         print("\nShow particular products: ")
         for items, item_count in self.feasible_product.items():
             if len(items) == product_amount:
-                print(items, item_count)
+                print(items, ':', item_count)
 
     def calculateConfidence(self, query):
 
         # query_data = input("Enter query (ex. I2 I3 | I1): ")
         print("\nCalculate Confidence: ")
-        A, B = query.split('|')
+        A, B = query.split('=>')
         tmp_items = set()
         
         for i in A.split(' '): tmp_items.add(i)
@@ -152,9 +153,9 @@ class AprioriAlgo:
         print("P(A): ", A, support_cnt_A)
         
         try:
-            print("P(B|A): ", (support_cnt_AUB / support_cnt_A)*100, "%")
+            print("\nP(B|A): ", (support_cnt_AUB / support_cnt_A)*100, "%")
         except:
-            print("Divide by zero error![However, there's no product pair in the inventory]")
+            print("\nThere's no feasible product pair in the inventory")
 
 
 if __name__ == '__main__':
@@ -162,9 +163,7 @@ if __name__ == '__main__':
     aprioriAlgo = AprioriAlgo(min_support=2)
 
     aprioriAlgo.loadData(fileName='apriori_algo/data.txt')
+    aprioriAlgo.createProductList()
+    aprioriAlgo.showSpecificProduct(product_amount=1)
+    aprioriAlgo.calculateConfidence(query='Bread Butter=>Sauce')
 
-    allProducts = aprioriAlgo.createProductList()
-    pprint.pprint(allProducts)
-
-    aprioriAlgo.showSpecificProduct(product_amount=3)
-    aprioriAlgo.calculateConfidence(query='Coke|Butter')

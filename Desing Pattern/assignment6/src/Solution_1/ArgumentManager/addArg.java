@@ -12,9 +12,9 @@ public class addArg implements ArgStrategy{
 
     @Override
     public void executeCMD(String inputCMD) {
-        String[] cmdArgs = inputCMD.split("");
-
+        String[] cmdArgs = inputCMD.split(" ");
         DatabaseFile currentDb = CLI.getDatabaseFile();
+
         if (currentDb != null) {
             currentDb.addData(cmdArgs[1]);
         } else {

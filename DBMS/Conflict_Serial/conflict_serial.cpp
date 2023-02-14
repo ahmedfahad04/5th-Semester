@@ -7,16 +7,16 @@ const int total_transaction = 100;
 
 vector<pair<pair<char, int>, string>> transaction, a;
 set<int> Node[total_transaction];
-set<int> transaction_size;
+set<int> all_transaction;
 
 int vis[total_transaction] = {0};
 int parent = 0;
 bool flag = true;
 
 /*
-    0 - not visited
-    1 - visiting not
-    2 - completed
+    0 - not visited  (white)
+    1 - visiting ... (grey)
+    2 - completed    (black)
 */
 
 void dfs(int x)
@@ -94,7 +94,7 @@ int main()
         int current_transaction_no = transaction[i].first.second;   // 1,2,3,....
         string current_variable = transaction[i].second;            // (variable)
 
-        transaction_size.insert(current_transaction_no);
+        all_transaction.insert(current_transaction_no);
         for (int j = i + 1; j < transaction.size(); j++)
         {
             char next_operator_type = transaction[j].first.first;
@@ -111,7 +111,7 @@ int main()
         }
     }
 
-    for (int tr : transaction_size)
+    for (int tr : all_transaction)
     {
         dfs(tr);
     }

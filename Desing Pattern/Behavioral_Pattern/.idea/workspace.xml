@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e112e437-e278-49f1-9e7e-ecf7f9fd39e8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../assignment6/src/1204.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/Conflict_Serial/conflict_serial.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../DBMS/Conflict_Serial/conflict_serial.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/Descision_Tree/entropy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/Descision_Tree/grain" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/Descision_Tree/read_csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/Descision_Tree/read_csv.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/Descision_Tree/tree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/Descision_Tree/weather.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../DBMS/Descision_Tree/weather.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/UCI Dataset/naiv_bayes_tic_tac_toe_only_categorical.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../../DBMS/UCI Dataset/naiv_bayes_tic_tac_toe_only_categorical.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/UCI Dataset/naive_bayes_caesarian_both_category.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../../DBMS/UCI Dataset/naive_bayes_caesarian_both_category.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/apriori_algo/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../DBMS/apriori_algo/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DBMS/apriori_algo/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../DBMS/apriori_algo/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/AnalogClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/AnalogClock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/ClockTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/ClockTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/DigitalClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/DigitalClock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/Observer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Behavioral Pattern/src/Observer_Pattern/client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Refactorig Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Refactorig Info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/ArgumentManager/addArg.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/ArgumentManager/addArg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/ArgumentManager/deleteArg.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/ArgumentManager/deleteArg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/ArgumentManager/useArg.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/ArgumentManager/useArg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/Main/CLI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/Main/CLI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/out/production/assignment6/Solution_1/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/src/Refactorig Info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/src/Refactorig Info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/src/Solution_1/ArgumentManager/addArg.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/src/Solution_1/ArgumentManager/addArg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/src/Solution_1/ArgumentManager/deleteArg.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/src/Solution_1/ArgumentManager/deleteArg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/src/Solution_1/ArgumentManager/useArg.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/src/Solution_1/ArgumentManager/useArg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/src/Solution_1/Main/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/src/Solution_1/Main/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/src/Solution_1/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/src/Solution_1/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment6/src/Solution_1/xmlParser/DatabaseFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment6/src/Solution_1/xmlParser/DatabaseFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/assignment_1/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_1/assignment_1/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/assignment_1/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_1/assignment_1/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/classwork1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/out/production/classwork1/FizzBuzz.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/out/production/classwork1/HTMLEncoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/out/production/classwork1/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/out/production/classwork1/PlaintextToHtmlConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/out/production/classwork1/TriviaGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_1/classwork1/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_2/Refactoring_2/src/Refactored_Code_2/PrintMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_2/Refactoring_2/src/Refactored_Code_2/PrintMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/factory_pattern/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/factory_pattern/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/factory_pattern/FlatButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/factory_pattern/FlatButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/factory_pattern/FlatStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/factory_pattern/FlatStyle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/factory_pattern/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/factory_pattern/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/factory_pattern/RaisedButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/factory_pattern/RaisedButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/factory_pattern/RaisedStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/factory_pattern/RaisedStyle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/factory_pattern/StyleSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/factory_pattern/StyleSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/factory_pattern/Widget.java" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/factory_pattern/Widget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/Button.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/Button.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/FlatButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/FlatButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/FlatStyle.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/FlatStyle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/RaisedButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/RaisedButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/RaisedStyle.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/RaisedStyle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/StyleSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment_3/out/production/assignment_3/com/factory_pattern/StyleSheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class2/class2/src/main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../class2/class2/src/main2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ocp/src/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ocp/src/Bird.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ocp/src/CantFly.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ocp/src/Cat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ocp/src/Dog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ocp/src/Flys.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ocp/src/ItFlys.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ocp/src/Main.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2LiTOqWFUOC1rqI20pa1FQ8rixk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/fahad/Documents/IIT/5th-Semester/Desing Pattern/Behavioral Pattern",
+    "settings.editor.selected.configurable": "MTConfigurable"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e112e437-e278-49f1-9e7e-ecf7f9fd39e8" name="Changes" comment="" />
+      <created>1676352875361</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676352875361</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,5 +1,5 @@
 package com.factory_pattern;
-public class FlatButton extends Button{
+public class FlatButton extends Widget {
 
     public FlatButton(String buttonLable) {
         super(buttonLable);
@@ -7,7 +7,7 @@ public class FlatButton extends Button{
 
     @Override
     public StyleSheet setStyle() {
-        return new FlatStyle();
+        return new FlatStyle("Flat");
     }
 
     @Override

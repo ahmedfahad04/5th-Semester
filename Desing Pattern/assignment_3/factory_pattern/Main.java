@@ -9,8 +9,9 @@ public class Main {
         // and setEffect() which are implemented
         // in the subclasses FlatButton and RaisedButton
         // and the subclasses are instantiated here
-        Button button = new FlatButton("MyButton1");
-        Button button2 = new RaisedButton("MyButton2");
-        System.out.printf(button2.btnlbl);
+
+        Widget flatButton = new FlatButton("Button1");
+        Button button = flatButton.RenderButton();
+        button.showDetails();
     }
 }

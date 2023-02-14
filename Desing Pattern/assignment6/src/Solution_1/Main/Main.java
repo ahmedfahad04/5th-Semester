@@ -2,7 +2,6 @@ package Solution_1.Main;
 
 import java.util.Scanner;
 import Solution_1.Constants.*;
-import static Solution_1.Main.CLI.*;
 import static Solution_1.Main.CLI.clientInput;
 
 
