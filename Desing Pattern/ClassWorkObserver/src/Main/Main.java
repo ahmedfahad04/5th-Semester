@@ -1,10 +1,8 @@
-package classwork;
+package Main;
 
 import java.io.IOException;
 
 public class Main {
-
-    // Need to add file properties.
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -14,7 +12,7 @@ public class Main {
         concreteSubject.trackFileChanges();
 
         // Input:
-        // We delete a file form the directory
+        // I renamed a file form the directory
 
         // Output:
         // Observer 1 => Entry was DELETED on log dir.:test5.txt

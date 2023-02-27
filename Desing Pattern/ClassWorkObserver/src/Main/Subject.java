@@ -1,4 +1,4 @@
-package classwork;
+package Main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,6 @@ public class Subject {
 
     String message;
 
-    public Subject() {
-    };
     List<Observer> observers = new ArrayList<>();
 
     public void registerObserver(Observer observer){
