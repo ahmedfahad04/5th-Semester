@@ -1,4 +1,5 @@
 package Example_1;
+
 public class Bird implements Flys {
     public Bird() {
         System.out.println("New Bird obj created...");

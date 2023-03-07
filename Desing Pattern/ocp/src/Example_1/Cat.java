@@ -1,4 +1,5 @@
 package Example_1;
+
 public class Cat extends CantFly{
 
     public Cat() {
