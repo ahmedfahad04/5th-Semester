@@ -38,7 +38,6 @@ public class CLI {
         }
 
         System.out.println("UNKNOWN COMMAND: " + cmdArgs[0] + "\nType `help;` for commands list");
-
     }
 
     public static void setDatabase(DatabaseFile database) {
@@ -48,8 +47,5 @@ public class CLI {
     public static DatabaseFile getDatabaseFile() {
         return databaseFile;
     }
-
-
-
 }
 

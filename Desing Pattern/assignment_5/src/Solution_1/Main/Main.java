@@ -27,6 +27,7 @@ public class Main {
             long exeTime = (endTime - startTime) / 1000000;
             System.out.println("\nExecution Time: " + exeTime + "ms");
         }
+
         input.close();
     }
 
