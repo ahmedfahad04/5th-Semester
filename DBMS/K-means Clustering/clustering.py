@@ -1,4 +1,4 @@
-import pprint 
+import pprint as p
 import numpy as np 
 import pandas as pd
 from matplotlib import pyplot as plt 
@@ -53,6 +53,7 @@ class K_Means:
         
         # randomly select k points as the initial centroids
         centroids = self.X[np.random.choice(self.X.shape[0], self.k, replace=False)]
+        print("Initial centroids: ", centroids)
         
         while 1:
                             
@@ -81,19 +82,24 @@ class K_Means:
 if __name__ == '__main__':
     
     # read data from csv file
-    data = pd.read_csv('K-means Clustering/income.csv')
-    df = data.iloc[:, 1:]
+    data = pd.read_csv('data2.csv')
+    df = data.iloc[:, :]
     df = np.array(df)
     
+    # define variable
+    var1 = 'Age'
+    var2 = 'Income($)'
+    
     # plot the data (before clustering)
-    plt.scatter(data['Age'], data['Income($)'])
+    plt.scatter(data[var1], data[var2])
     plt.show()
     
     # apply the K-Means algorithm
     kmeans = K_Means(3, df)
     kmeans.fit()
-    print(kmeans.predict([[14, 50000],[20, 70000]]))
-    print(kmeans.labels_)
+    p.pprint(kmeans.predict([[1.2, 2.5]]))
+    p.pprint(kmeans.labels_)
+    p.pprint(kmeans.centroids_)
     
     # plot the data (after clustering)
     data['cluster'] = kmeans.labels_
@@ -101,11 +107,10 @@ if __name__ == '__main__':
     df2 = data[data.cluster == 1]
     df3 = data[data.cluster == 2]
 
-    plt.scatter(df1['Age'], df1['Income($)'], color='green')    
-    plt.scatter(df2['Age'], df2['Income($)'], color='blue')    
-    plt.scatter(df3['Age'], df3['Income($)'], color='red')    
+    plt.scatter(df1[var1], df1[var2], color='green')    
+    plt.scatter(df2[var1], df2[var2], color='blue')    
+    plt.scatter(df3[var1], df3[var2], color='red')    
     
-    plt.xlabel('Age')
-    plt.ylabel('Income ($)')
-    plt.legend()
+    plt.xlabel(var1)
+    plt.ylabel(var2)
     plt.show()
