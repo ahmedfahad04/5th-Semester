@@ -1,0 +1,8 @@
+# ignore all ipynb_checkpoints
+.ipynb_checkpoints
+
+# ignore all __pycache__ files
+__pycache__
+
+# ignore all .idea files
+.idea
