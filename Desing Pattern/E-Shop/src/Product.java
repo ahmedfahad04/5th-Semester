@@ -1,4 +1,4 @@
-public class Product {
+public class Product extends ShopComponent{
     private String name;
     private String description;
     private double price;
@@ -6,12 +6,8 @@ public class Product {
     private int inventory;
     private int quantity;
 
-    public Product(String name, String description, double price, String image, int inventory) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.image = image;
-        this.inventory = inventory;
+    public Product(IEShopMediator shopMediator) {
+        super(shopMediator);
     }
 
     public int getQuantity() {

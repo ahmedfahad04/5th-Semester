@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.concurrent.CompletionService;
 
 public class Faraz extends EShopTemplate {
 
@@ -25,7 +26,7 @@ public class Faraz extends EShopTemplate {
                     int id = i + 1;
                     System.out.println("ID: " + id + "\n" + products.get(i));
                 }
-                System.out.println("Before purchasing products, please Login...");
+                System.out.println(Constants.RED + "Before purchasing products, please Login...\n" + Constants.RESET);
                 break;
             }
         }
@@ -37,30 +38,33 @@ public class Faraz extends EShopTemplate {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please enter your EMAIL:");
+        System.out.print("Enter your " + Constants.GREEN +  "EMAIL: " + Constants.RESET);
         String email = scanner.nextLine();
-        System.out.println("Please enter your PASSWORD:");
+        System.out.print("Enter your " + Constants.GREEN +  "PASSWORD: " + Constants.RESET);
         String password = scanner.nextLine();
 
         // TODO: Validation Process faulty.
-        User user = new User(email, password);
+        User user = new User(mediator);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setUserType(userType);
 
         // TODO: Strategy pattern
-        if (ifRegistered(user)) {
+        if (checkPassword(user)) {
             if (userType == Constants.User.Admin) {
-                System.out.println("Welcome " + user.getEmail() + "!");
+                System.out.println(Constants.BLUE_BOLD + "\nWelcome " + user.getEmail() + "!" + Constants.RESET);
                 return true;
             } else if (userType == Constants.User.Customer) {
-                System.out.println("You are successfully logged in. Now you can add to cart!");
+                System.out.println(Constants.BLUE_BOLD + "\nYou are successfully logged in. Now you can add to cart!\n"+Constants.RESET);
                 return true;
             } else {
                 return false;
             }
         } else {
             if (ifRegistered(user)) {
-                System.out.println("Invalid email or password");
+                System.out.println(Constants.RED + "\nInvalid email or password\n" + Constants.RESET);
             } else {
-                System.out.println("You are not registered. Register first!");
+                System.out.println(Constants.RED + "\nYou are not registered. Register first!\n" + Constants.RESET);
                 register(user);
             }
             return false;
@@ -72,19 +76,19 @@ public class Faraz extends EShopTemplate {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please enter your NAME:");
+        System.out.print("Please enter your " + Constants.GREEN +  "NAME:");
         user.setName(scanner.nextLine());
-        System.out.println("Please enter your ADDRESS:");
+        System.out.print("Please enter your " + Constants.GREEN +  "ADDRESS:");
         user.setAddress(scanner.nextLine());
-        System.out.println("Please enter your MOBILE NUMBER:");
+        System.out.print("Please enter your " + Constants.GREEN +  "MOBILE NUMBER:");
         user.setPhoneNumber(scanner.nextLine());
 
         user.setUserType(Constants.User.Customer);
 
-        mediator.addUser(user);
+        mediator.connectComponent(user);
 
         try (FileWriter fileWriter = new FileWriter("users.txt", true)) {
-            fileWriter.write(user.getName() +','+ user.getEmail() +','+ user.getPassword() +','+ user.getPhoneNumber() +','+ user.getAddress() +','+user.getUserType() + '\n');
+            fileWriter.write(user.getName() + ',' + user.getEmail() + ',' + user.getPassword() + ',' + user.getPhoneNumber() + ',' + user.getAddress() + ',' + user.getUserType() + '\n');
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -97,21 +101,25 @@ public class Faraz extends EShopTemplate {
 
         Product product = null;
 
+        while (!login(Constants.User.Customer)) {
+            System.out.println("Please Login again...");
+        }
+
         String status = "y";
         while (true) {
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Enter product ID: ");
+            System.out.print("Enter " + Constants.GREEN +  "Product ID: " + Constants.RESET);
             int productID = scanner.nextInt();
 
-            System.out.println("Enter product Quantity: ");
+            System.out.print("Enter " + Constants.GREEN +  "Product Quantity: ");
             int productQuantity = scanner.nextInt();
 
             product = products.get(productID - 1);
             product.setQuantity(productQuantity);
 
             productCart.add(product);
-            System.out.println("Product added");
+            System.out.println(Constants.GREEN_BOLD + "Product added" + Constants.RESET);
 
             System.out.println("Add more? (yes/no)");
             status = scanner.next();
@@ -120,30 +128,24 @@ public class Faraz extends EShopTemplate {
             }
         }
 
-        System.out.println("Shopping done. Now pay to get your receipt...");
+        System.out.println("\nShopping done. Now pay to get your receipt...\n");
     }
 
     @Override
     public void checkOutOrder() {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter Payment Gateway (eg. cc for Credit Card): ");
-        System.out.println("cc: Credit Card\ncrc: Cryptocurrency\npp: PayPal");
-        String paymentGateway = scanner.next();
-
-        mediator.purchaseProduct(productCart, null, paymentGateway);
+        mediator.purchaseProduct(productCart);
     }
 
-
     public void addNewProduct() {
-        System.out.println("Before you proceeds, Login as Admin...\n");
+        System.out.println(Constants.RED + "Before you proceeds, Login as Admin...\n" + Constants.RESET);
+
 
         while (!login(Constants.User.Admin)) {
             System.out.println("Please Login again...");
         }
 
-        System.out.println("Admin Login Successfully...");
+
+        System.out.println(Constants.BLUE + "Admin Login Successfully...\n" + Constants.RESET);
 
         String status = null;
 
@@ -151,21 +153,31 @@ public class Faraz extends EShopTemplate {
             while (true) {
                 Scanner scanner = new Scanner(System.in);
 
-                System.out.println("Please enter the PRODUCT NAME: ");
+                System.out.print("\nEnter the "+ Constants.GREEN + "PRODUCT NAME: " + Constants.RESET);
                 String productName = scanner.nextLine();
-                System.out.println("Please enter PRODUCT DETAILS: ");
+                System.out.print("Enter "+ Constants.GREEN + "PRODUCT DETAILS: " + Constants.RESET);
                 String productDetails = scanner.nextLine();
-                System.out.println("Please enter the PRODUCT PRICE: ");
+                System.out.print("Enter the "+ Constants.GREEN + "PRODUCT PRICE: " + Constants.RESET);
                 double productPrice = scanner.nextDouble();       // TODO: crash when we enter string
-                System.out.println("Please enter Quantity: ");
+                System.out.print("Enter "+ Constants.GREEN + " Quantity: " + Constants.RESET);
                 int productQuantity = scanner.nextInt();
 
-                mediator.addProduct(new Product(productName, productDetails, productPrice, null, productQuantity));
-                // Save the product to the file
-                fileWriter.write(productName +','+ productDetails +','+ productPrice +','+ null +','+ productQuantity + '\n');
-                System.out.println("Product " + productName.toUpperCase() + " has been added successfully");
+                // -----------------------------------------------
+                Product product = new Product(mediator);
+                product.setName(productName);
+                product.setDescription(productDetails);
+                product.setPrice(productPrice);
+                product.setImage(null);
+                product.setInventory(productQuantity);
 
-                System.out.println("Add more? (yes/no)");
+                mediator.connectComponent(product);
+                // -----------------------------------------------
+
+                // Save the product to the file
+                fileWriter.write(productName + ',' + productDetails + ',' + productPrice + ',' + null + ',' + productQuantity + '\n');
+                System.out.println(Constants.BLUE_BOLD + "\nProduct " + productName.toUpperCase() + " has been added successfully\n" + Constants.RESET);
+
+                System.out.println(Constants.CYAN_BOLD + "Add more? (yes/no)" + Constants.RESET);
                 status = scanner.next();
                 if (!status.equalsIgnoreCase("yes")) {
                     break;
@@ -177,15 +189,25 @@ public class Faraz extends EShopTemplate {
     }
 
     // THis need to be moved...
-    public boolean ifRegistered (User user){
-
-        users = mediator.getListOfUsers();
+    public boolean ifRegistered(User user) {
 
         for (User x : users) {
-            if (Objects.equals(x.getName(), user.getName())) {
-                return true;
-            } else if (Objects.equals(x.getPassword(), user.getPassword())) {
-                return true;
+            if (x.getUserType() == user.getUserType()) {
+                if (Objects.equals(x.getEmail(), user.getEmail()) || Objects.equals(x.getPassword(), user.getPassword())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean checkPassword(User user) {
+
+        for (User x : users) {
+            if (x.getUserType() == user.getUserType()) {
+                if (Objects.equals(x.getEmail(), user.getEmail()) && Objects.equals(x.getPassword(), user.getPassword())) {
+                    return true;
+                }
             }
         }
         return false;

@@ -10,7 +10,9 @@ public class PayWithCrypto implements IPaymentStrategy{
     }
 
     @Override
-    public void transaction(double amount) {
+    public double transaction(double discount, double checkOutAmount) {
+
+        double remainingBalance = 0;
 
         while(true){
             Scanner scanner = new Scanner(System.in);
@@ -22,8 +24,10 @@ public class PayWithCrypto implements IPaymentStrategy{
             cryptocurrency = new CryptocurrencyPayment(walletAddress, secretKey);
 
             if (cryptocurrency.checkCredentials()) {
-                System.out.println("Remaining Balance: " + cryptocurrency.pay(amount));
-                break;
+                remainingBalance = cryptocurrency.pay(discount, checkOutAmount);
+
+                System.out.println("Remaining Balance: " + remainingBalance);
+                return remainingBalance;
             } else {
                 System.out.println("Wrong Card Credentials, please try again...");
             }

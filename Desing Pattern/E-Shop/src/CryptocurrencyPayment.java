@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class CryptocurrencyPayment implements IPayment {
     private String walletAddress;
     private String secretKey;
@@ -9,12 +13,15 @@ public class CryptocurrencyPayment implements IPayment {
     }
 
     @Override
-    public double pay(double amount) {
+    public double pay(double discount, double amount) {
+
         if (amount < balance) {
-            balance -= amount;
+            balance -= amount - discount;
         } else {
-            System.out.println("Insufficient funds");
+            return -1;
         }
+
+        this.setBalance(balance);
         return balance;
     }
 
@@ -27,12 +34,25 @@ public class CryptocurrencyPayment implements IPayment {
     }
 
     @Override
-    public double applyDiscount(double totalPrice) {
-        return 0.0;
-    }
-
-    @Override
     public boolean checkCredentials() {
-        return true;
+        // read data from the file
+        try {
+            File myObj = new File("paymentInfo.txt");
+            Scanner myReader = new Scanner(myObj);
+
+            while (myReader.hasNextLine()) {
+                String[] data = myReader.nextLine().split(",");
+                if (data[3].equals("crc") && (this.walletAddress.equals(data[0]) && this.secretKey.equals(data[1]))) {
+                    this.balance = Double.parseDouble(data[2]);
+                    return true;
+                }
+
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return false;
     }
 }

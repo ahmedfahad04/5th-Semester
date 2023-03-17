@@ -1,4 +1,4 @@
-public class User {
+public class User extends ShopComponent {
     private String name;
     private String email;
     private String password;
@@ -6,18 +6,8 @@ public class User {
     private String phoneNumber;
     private Constants.User userType;
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(String name, String email, String pass, String address, String phoneNumber, String userType) {
-        this.name = name;
-        this.email = email;
-        this.password = pass;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.userType = Constants.User.valueOf(userType);
+    public User(IEShopMediator shopMediator) {
+        super(shopMediator);
     }
 
     public String getName() {

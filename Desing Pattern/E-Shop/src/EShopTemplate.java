@@ -4,8 +4,8 @@ public abstract class EShopTemplate {
 
     public void shop() {
 
-        login(Constants.User.Customer);
         displayProducts();
+//        login(Constants.User.Customer);
         addToCart();
         checkOutOrder();
     }
@@ -19,5 +19,6 @@ public abstract class EShopTemplate {
     public abstract void register(User user);
 
     public abstract void addToCart();
+
 
 }

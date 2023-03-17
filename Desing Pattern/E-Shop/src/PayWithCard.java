@@ -9,20 +9,23 @@ public class PayWithCard implements IPaymentStrategy {
     }
 
     @Override
-    public void transaction(double amount) {
+    public double transaction(double discount, double checkOutAmount) {
+
+        double remaininBalance = 0;
 
         while(true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter Card Number:");
+            System.out.print("Enter " + Constants.GREEN +  "Card Number:");
             String cardNumber = scanner.nextLine();
-            System.out.println("Enter Phone Number:");
+            System.out.print("Enter " + Constants.GREEN +  "Phone Number:");
             String phoneNumber = scanner.nextLine();
 
             creditCard = new CreditCardPayment(cardNumber, phoneNumber);
 
             if (creditCard.checkCredentials()) {
-                System.out.println("Remaining Balance: " + creditCard.pay(amount));
-                break;
+                remaininBalance = creditCard.pay(discount, checkOutAmount);
+                System.out.println("Remaining Balance: " + remaininBalance);
+                return remaininBalance;
             } else {
                 System.out.println("Wrong Card Credentials, please try again...");
             }

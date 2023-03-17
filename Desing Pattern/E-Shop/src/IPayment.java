@@ -1,5 +1,4 @@
 public interface IPayment {
-    double pay(double amount);
-    double applyDiscount(double totalPrice);
+    double pay(double discount, double amount);
     boolean checkCredentials();
 }

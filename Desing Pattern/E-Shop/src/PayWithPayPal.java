@@ -10,7 +10,9 @@ public class PayWithPayPal implements IPaymentStrategy{
     }
 
     @Override
-    public void transaction(double amount) {
+    public double transaction(double discount, double checkOutAmount) {
+
+        double remainingBalance = 0;
 
         while(true) {
             Scanner scanner = new Scanner(System.in);
@@ -23,8 +25,9 @@ public class PayWithPayPal implements IPaymentStrategy{
             paypal = new PayPalPayment(email, password);
 
             if (paypal.checkCredentials()) {
-                System.out.println("Remaining Balance: " + paypal.pay(amount));
-                break;
+                remainingBalance = paypal.pay(discount, checkOutAmount);
+                System.out.println("Remaining Balance: " + remainingBalance);
+                return remainingBalance;
             } else {
                 System.out.println("Wrong Card Credentials, please try again...");
             }
