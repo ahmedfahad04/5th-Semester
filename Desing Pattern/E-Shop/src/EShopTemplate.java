@@ -4,11 +4,13 @@ public abstract class EShopTemplate {
 
     public void shop() {
 
+        login(Constants.User.Customer);
         displayProducts();
-        login(null);
         addToCart();
-//        mediator.purchaseProduct(null, null, null);
+        checkOutOrder();
     }
+
+    public abstract void checkOutOrder();
 
     public abstract void displayProducts();
 

@@ -1,7 +1,7 @@
 public interface IPaymentStrategy {
 
-    public boolean checkPaymentMethod(IPayment paymentMethod);
+    public boolean checkPaymentMethod(String paymentMethod);
 
-    public double transaction(Product product);
+    public void transaction(double amount);
 
 }

@@ -28,6 +28,7 @@ public class EShopPlatform implements IEShopMediator {
 
     @Override
     public void addProduct(Product product) {
+
         this.products.add(product);
     }
 
@@ -67,30 +68,39 @@ public class EShopPlatform implements IEShopMediator {
     }
 
     @Override
-    public void purchaseProduct(Product product, User user, IPayment paymentMethod) {
+    public void purchaseProduct(List<Product> products, User user, String paymentMethod) {
 
-        // Check product availability
-        if (product.getInventory() <= 0) {
-            System.out.println("Sorry, the product is out of stock.");
-            return;
-        }
+        double checkOutAmount = 0;
 
-        // Check user information
-        if (!user.isRegistered()) {
-            System.out.println("Invalid user information.");
-            return;
+        for (Product product: products) {
+
+            int quantity = product.getQuantity();
+
+            // Check product availability
+            if (product.getInventory() <= 0 && quantity > product.getInventory()) {
+                System.out.println("Sorry, the product is out of stock.");
+                return;
+            } else {
+                product.setInventory(product.getInventory() - quantity);
+            }
+
+            // Login as user at that point
+
+            // calculate amount
+            checkOutAmount += product.getPrice() * quantity;
+
         }
 
         // Process payment [Strategy Pattern]
-        double checkOutAmount = 0;
+
         for(IPaymentStrategy paymentStrategy: paymentStrategies) {
-            if(paymentStrategy.checkPaymentMethod(paymentMethod)){        
-                checkOutAmount = paymentStrategy.transaction(product);
+            if(paymentStrategy.checkPaymentMethod(paymentMethod)){
+                paymentStrategy.transaction(checkOutAmount);
             }
         }
 
-        // Send order confirmation and payment receipt
-        System.out.println("Thank you for your purchase! Your order of " + product.getName() + " has been confirmed.");
+        //Send order confirmation and payment receipt
+        System.out.println("Thank you for your purchase! Your order of has been confirmed.");
         System.out.println("Your total payment is " + checkOutAmount + ". A receipt will be sent to your email.");
     }
 }

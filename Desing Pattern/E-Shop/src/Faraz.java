@@ -7,16 +7,17 @@ import java.util.Scanner;
 
 public class Faraz extends EShopTemplate {
 
-    private List<Product> products = new ArrayList<Product>();
-    private List<User> users = new ArrayList<User>();
+    private List<Product> products = mediator.getListOfProducts();
+    private List<User> users = mediator.getListOfUsers();
+    private List<Product> productCart = new ArrayList<Product>();
 
     @Override
     public void displayProducts() {
-        products = mediator.getListOfProducts();
 
         while (true) {
             if (products.size() == 0) {
-                System.out.println("No products available. Only Admin Can add Products.");
+                System.out.println("\n--------------------------------");
+                System.out.println("No products available. Let ADMIN to Login & Products");
                 addNewProduct();
             } else {
                 System.out.println("PRODUCT LIST: ============= Total Products: " + products.size());
@@ -24,6 +25,7 @@ public class Faraz extends EShopTemplate {
                     int id = i + 1;
                     System.out.println("ID: " + id + "\n" + products.get(i));
                 }
+                System.out.println("Before purchasing products, please Login...");
                 break;
             }
         }
@@ -32,30 +34,23 @@ public class Faraz extends EShopTemplate {
 
     @Override
     public boolean login(Constants.User userType) {
-        users = mediator.getListOfUsers();
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please enter your EMAIL:");
-        String username = scanner.nextLine();
+        String email = scanner.nextLine();
         System.out.println("Please enter your PASSWORD:");
         String password = scanner.nextLine();
 
         // TODO: Validation Process faulty.
-        User user = new User(username, password);
-        for(int i = 0; i < users.size(); i++) {
-            if(users.get(i).getEmail().equals(username) && users.get(i).getPassword().equals(password)) {
-                user.setUserType(users.get(i).getUserType());
-                break;
-            }
-        }
+        User user = new User(email, password);
 
         // TODO: Strategy pattern
         if (ifRegistered(user)) {
-            if (user.getUserType() == Constants.User.Admin) {
-                System.out.println("Welcome " + user.getName() + "!");
+            if (userType == Constants.User.Admin) {
+                System.out.println("Welcome " + user.getEmail() + "!");
                 return true;
-            } else if (user.getUserType() == Constants.User.Customer) {
+            } else if (userType == Constants.User.Customer) {
                 System.out.println("You are successfully logged in. Now you can add to cart!");
                 return true;
             } else {
@@ -100,20 +95,23 @@ public class Faraz extends EShopTemplate {
     @Override
     public void addToCart() {
 
-        List<Product> productCart = new ArrayList<Product>();
-
-//        System.out.println("Login first to proceed...");
-//        while (!login(Constants.User.Customer)) {
-//            System.out.println("Please Try again...");
-//        }
+        Product product = null;
 
         String status = "y";
         while (true) {
             Scanner scanner = new Scanner(System.in);
+
             System.out.println("Enter product ID: ");
             int productID = scanner.nextInt();
 
-            productCart.add(products.get(productID - 1));
+            System.out.println("Enter product Quantity: ");
+            int productQuantity = scanner.nextInt();
+
+            product = products.get(productID - 1);
+            product.setQuantity(productQuantity);
+
+            productCart.add(product);
+            System.out.println("Product added");
 
             System.out.println("Add more? (yes/no)");
             status = scanner.next();
@@ -125,12 +123,26 @@ public class Faraz extends EShopTemplate {
         System.out.println("Shopping done. Now pay to get your receipt...");
     }
 
+    @Override
+    public void checkOutOrder() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter Payment Gateway (eg. cc for Credit Card): ");
+        System.out.println("cc: Credit Card\ncrc: Cryptocurrency\npp: PayPal");
+        String paymentGateway = scanner.next();
+
+        mediator.purchaseProduct(productCart, null, paymentGateway);
+    }
+
+
     public void addNewProduct() {
-        System.out.println("Before you proceeds, Login as Admin...");
+        System.out.println("Before you proceeds, Login as Admin...\n");
 
         while (!login(Constants.User.Admin)) {
             System.out.println("Please Login again...");
         }
+
         System.out.println("Admin Login Successfully...");
 
         String status = null;
@@ -164,18 +176,18 @@ public class Faraz extends EShopTemplate {
         }
     }
 
-        // THis need to be moved...
-        public boolean ifRegistered (User user){
+    // THis need to be moved...
+    public boolean ifRegistered (User user){
 
-            users = mediator.getListOfUsers();
+        users = mediator.getListOfUsers();
 
-            for (User x : users) {
-                if (Objects.equals(x.getName(), user.getName())) {
-                    return true;
-                } else if (Objects.equals(x.getPassword(), user.getPassword())) {
-                    return true;
-                }
+        for (User x : users) {
+            if (Objects.equals(x.getName(), user.getName())) {
+                return true;
+            } else if (Objects.equals(x.getPassword(), user.getPassword())) {
+                return true;
             }
-            return false;
         }
+        return false;
     }
+}

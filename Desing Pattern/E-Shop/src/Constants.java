@@ -4,4 +4,10 @@ public class Constants {
         Admin,
         Customer
     }
+
+    public enum paymentMethods {
+        CreditCard,
+        Cryptocurrency,
+        Paypal
+    }
 }

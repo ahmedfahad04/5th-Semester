@@ -1,6 +1,8 @@
 public class PayPalPayment implements IPayment {
     private String email;
     private String password;
+    private double balance;
+
 
     public PayPalPayment(String email, String password) {
         this.email = email;
@@ -9,8 +11,20 @@ public class PayPalPayment implements IPayment {
 
     @Override
     public double pay(double amount) {
-        // process PayPal payment
-        return 0.0;
+        if (amount < balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds");
+        }
+        return balance;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     @Override

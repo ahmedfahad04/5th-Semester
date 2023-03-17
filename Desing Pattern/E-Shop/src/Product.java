@@ -4,6 +4,7 @@ public class Product {
     private double price;
     private String image;
     private int inventory;
+    private int quantity;
 
     public Product(String name, String description, double price, String image, int inventory) {
         this.name = name;
@@ -11,6 +12,14 @@ public class Product {
         this.price = price;
         this.image = image;
         this.inventory = inventory;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getName() {

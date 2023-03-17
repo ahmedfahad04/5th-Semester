@@ -1,2 +1,2 @@
-coke,sd,25.0,null,4
-ringo,4,4.0,null,1
+Coke,Soft Drinks,25.0,null,5
+Poppers,Chips,25.0,null,4

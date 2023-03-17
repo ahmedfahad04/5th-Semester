@@ -1,6 +1,7 @@
 public class CryptocurrencyPayment implements IPayment {
     private String walletAddress;
     private String secretKey;
+    private double balance;
 
     public CryptocurrencyPayment(String walletAddress, String secretKey) {
         this.walletAddress = walletAddress;
@@ -9,8 +10,20 @@ public class CryptocurrencyPayment implements IPayment {
 
     @Override
     public double pay(double amount) {
-        // process cryptocurrency payment
-        return 0.0;
+        if (amount < balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds");
+        }
+        return balance;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     @Override

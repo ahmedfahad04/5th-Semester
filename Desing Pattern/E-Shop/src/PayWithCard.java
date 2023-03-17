@@ -1,27 +1,32 @@
+import java.util.Scanner;
+
 public class PayWithCard implements IPaymentStrategy {
     CreditCardPayment creditCard;
-    double totalPrice;
 
     @Override
-    public boolean checkPaymentMethod(IPayment paymentMethod) {
-        creditCard = (CreditCardPayment) paymentMethod;
-        return paymentMethod instanceof CreditCardPayment;
+    public boolean checkPaymentMethod(String paymentMethod) {
+        return paymentMethod.equalsIgnoreCase("cc");
     }
 
     @Override
-    public double transaction(Product product) {
+    public void transaction(double amount) {
 
-        double productPrice = product.getPrice();
+        while(true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter Card Number:");
+            String cardNumber = scanner.nextLine();
+            System.out.println("Enter Phone Number:");
+            String phoneNumber = scanner.nextLine();
 
-        if (creditCard.checkCredentials()) {
-            totalPrice = creditCard.pay(productPrice);
-            product.setInventory(product.getInventory() - 1);
+            creditCard = new CreditCardPayment(cardNumber, phoneNumber);
 
-        } else {
-            totalPrice = -1;
-            // TODO: Issue a warning to the user that the payment was not successful
+            if (creditCard.checkCredentials()) {
+                System.out.println("Remaining Balance: " + creditCard.pay(amount));
+                break;
+            } else {
+                System.out.println("Wrong Card Credentials, please try again...");
+            }
         }
 
-        return totalPrice;
     }
 }

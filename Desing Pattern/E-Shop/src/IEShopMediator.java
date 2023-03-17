@@ -6,5 +6,5 @@ public interface IEShopMediator {
     void addProduct(Product product);
     List<User> getListOfUsers();
     List<Product> getListOfProducts();
-    void purchaseProduct(Product product, User user, IPayment paymentMethod);
+    void purchaseProduct(List<Product> products, User user, String paymentMethod);
 }

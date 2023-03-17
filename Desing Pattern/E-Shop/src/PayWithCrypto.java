@@ -1,28 +1,32 @@
+import java.util.Scanner;
+
 public class PayWithCrypto implements IPaymentStrategy{
     
     CryptocurrencyPayment cryptocurrency;
-    double totalPrice;
 
     @Override
-    public boolean checkPaymentMethod(IPayment paymentMethod) {
-        cryptocurrency = (CryptocurrencyPayment) paymentMethod;
-        return paymentMethod instanceof CryptocurrencyPayment;
+    public boolean checkPaymentMethod(String paymentMethod) {
+        return paymentMethod.equalsIgnoreCase("crc");
     }
 
     @Override
-    public double transaction(Product product) {
+    public void transaction(double amount) {
 
-        double productPrice = product.getPrice();
+        while(true){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter Waller Address: ");
+            String walletAddress = scanner.next();
+            System.out.println("Enter Secret Key: ");
+            String secretKey = scanner.next();
 
-        if (cryptocurrency.checkCredentials()) {
-            totalPrice = cryptocurrency.pay(productPrice);
-            product.setInventory(product.getInventory() - 1);
+            cryptocurrency = new CryptocurrencyPayment(walletAddress, secretKey);
 
-        } else {
-            totalPrice = -1;
-            // TODO: Issue a warning to the user that the payment was not successful
+            if (cryptocurrency.checkCredentials()) {
+                System.out.println("Remaining Balance: " + cryptocurrency.pay(amount));
+                break;
+            } else {
+                System.out.println("Wrong Card Credentials, please try again...");
+            }
         }
-
-        return totalPrice;
     }
 }

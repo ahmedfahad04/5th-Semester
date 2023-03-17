@@ -1,29 +1,34 @@
+import java.util.Scanner;
+
 public class PayWithPayPal implements IPaymentStrategy{
     
     PayPalPayment paypal;
-    double totalPrice;
 
     @Override
-    public boolean checkPaymentMethod(IPayment paymentMethod) {
-        paypal = (PayPalPayment) paymentMethod;
-        return paymentMethod instanceof PayPalPayment;
+    public boolean checkPaymentMethod(String paymentMethod) {
+        return paymentMethod.equalsIgnoreCase("pp");
     }
 
     @Override
-    public double transaction(Product product) {
+    public void transaction(double amount) {
 
-        double productPrice = product.getPrice();
+        while(true) {
+            Scanner scanner = new Scanner(System.in);
 
-        if (paypal.checkCredentials()) {
-            
-            totalPrice = paypal.pay(productPrice);
-            product.setInventory(product.getInventory() - 1);
+            System.out.println("Enter Email Address: ");
+            String email = scanner.nextLine();
+            System.out.println("Enter Password: ");
+            String password = scanner.nextLine();
 
-        } else {
-            totalPrice = -1;
-            // TODO: Issue a warning to the user that the payment was not successful
+            paypal = new PayPalPayment(email, password);
+
+            if (paypal.checkCredentials()) {
+                System.out.println("Remaining Balance: " + paypal.pay(amount));
+                break;
+            } else {
+                System.out.println("Wrong Card Credentials, please try again...");
+            }
         }
-
-        return totalPrice;
     }
+
 }
