@@ -1,14 +1,14 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 
         Faraz farazStore = new Faraz();
         System.out.println(Constants.HEADING);
         Scanner input = new Scanner(System.in);
 
-        label:
         while (true) {
             System.out.println(Constants.HELP_COMMANDS);
             System.out.print(Constants.CMD_PREFIX);
@@ -18,7 +18,7 @@ public class Main {
                 break;
             }
 
-            // break if user wants to exit
+            // options are limited. That's why we used switch statement
             switch (currentCmd) {
                 case "1" -> farazStore.shop();
                 case "2" -> farazStore.addNewProduct();

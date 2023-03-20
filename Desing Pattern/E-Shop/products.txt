@@ -1,2 +1,7 @@
-Coke,Soft Drinks,25.0,null,5
-Poppers,Chips,25.0,null,4
+c,c,4.0,null,4
+v,v,5.0,null,0
+Coke,Drinks,25.0,null,8
+Pepsi,Soft Drinks,5.0,null,10
+Chocobar,IceCream,25.0,null,34
+ButterBun,Altime ButterBun,10.0,null,50
+Ringo,Chips,15.0,null,18

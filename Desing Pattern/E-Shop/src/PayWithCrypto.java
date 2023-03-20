@@ -16,9 +16,9 @@ public class PayWithCrypto implements IPaymentStrategy{
 
         while(true){
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter Waller Address: ");
+            System.out.println("Enter " + Constants.GREEN + "Wallet Address: " + Constants.RESET);
             String walletAddress = scanner.next();
-            System.out.println("Enter Secret Key: ");
+            System.out.println("Enter " + Constants.GREEN + "Secret Key: " + Constants.RESET);
             String secretKey = scanner.next();
 
             cryptocurrency = new CryptocurrencyPayment(walletAddress, secretKey);

@@ -15,6 +15,8 @@ public class CreditCardPayment implements IPayment {
     @Override
     public double pay(double discount, double amount) {
 
+        System.out.println("Current Balance: " + this.getBalance() + "\nCheckout Amount: " + (amount-discount));
+
         if (amount < balance) {
             balance -= amount - discount;
         } else {

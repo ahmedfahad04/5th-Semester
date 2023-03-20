@@ -1,0 +1,31 @@
+1. We have used 'EShopPlatform' as the 'Concrete Mediator Class' which implements IEShopMediator.
+2. We have used 'EShopTemplate' as the 'Template Method' providing class that define displaying,
+purchasing and placing purchasing orders of customers.
+3. We have used 'Strategy Pattern' in EShopPlatform's 'purchaseProduct()' method.
+
+What the capabilities of that program:
+1. Users can view and purchase the products.
+2. Admin can add new products.
+3. Each product details is stored in files.
+4. After the purchase, the product details is updated in files.
+5. Users/Admin have to Log in first to complete their activities.
+6. Program also checks if their sufficient balance in payment cards to complete payment.
+7. Program also checks if their is enough amount of product to purchase.
+8. After the purchase, the product details is shown in form of Payment Slip.
+
+Snap Shot of Slip:
+........................
+
+Thank you for your purchase! Your order has been confirmed.
+| ===============================================================
+| Item Name                      Quantity   Retail Price Total Amount
+| ---------------------------------------------------------------
+| Chocobar                       2          $25.00      $50.00
+| v                              5          $5.00       $25.00
+| ---------------------------------------------------------------
+| Total                                                $75.00
+| Discount (-5.0%)                                     -$3.75
+| ---------------------------------------------------------------
+| Grand Total                                          $71.25
+| ===============================================================
+Your total payment is $71.25

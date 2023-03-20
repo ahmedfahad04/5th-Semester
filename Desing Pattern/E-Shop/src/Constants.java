@@ -22,9 +22,14 @@ public class Constants {
             "Commands:\n" +
             "  1               - Show & Buy Product List\n" +
             "  2               - Add Product\n" +
-            "  exit            - Exits the program\n";
+            "  exit            - Exits the program";
 
-    public static String CMD_PREFIX = "\n\u001B[31m>\u001B[0m ";
+    public static String CMD_PREFIX = Constants.RED_BOLD + "> " + Constants.RESET;
+
+    public static final String CMD_PAYEMENT = Constants.BLUE_BOLD + "cc: Credit Card\ncrc: Cryptocurrency\npp: PayPal"
+            + Constants.RESET + "\nEnter Payment " + Constants.BLUE + "Gateway (eg. cc for Credit Card): " + Constants.RESET;
+
+
     // Reset
     public static final String RESET = "\033[0m";  // Text Reset
 

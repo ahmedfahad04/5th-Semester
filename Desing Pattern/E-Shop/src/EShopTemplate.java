@@ -1,16 +1,17 @@
+import java.io.IOException;
+
 public abstract class EShopTemplate {
 
     public IEShopMediator mediator = new EShopPlatform();
 
-    public void shop() {
+    public void shop() throws IOException {
 
         displayProducts();
-//        login(Constants.User.Customer);
         addToCart();
         checkOutOrder();
     }
 
-    public abstract void checkOutOrder();
+    public abstract void checkOutOrder() throws IOException;
 
     public abstract void displayProducts();
 

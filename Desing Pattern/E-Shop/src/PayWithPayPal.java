@@ -17,9 +17,9 @@ public class PayWithPayPal implements IPaymentStrategy{
         while(true) {
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Enter Email Address: ");
+            System.out.println("Enter "+ Constants.GREEN+ "Email Address: " + Constants.RESET);
             String email = scanner.nextLine();
-            System.out.println("Enter Password: ");
+            System.out.println("Enter "+ Constants.RESET + "Password: " + Constants.RESET);
             String password = scanner.nextLine();
 
             paypal = new PayPalPayment(email, password);

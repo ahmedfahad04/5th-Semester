@@ -21,6 +21,7 @@ public class CryptocurrencyPayment implements IPayment {
             return -1;
         }
 
+        System.out.println("Current Balance: " + this.getBalance() + "Checkout Amount: " + (amount-discount));
         this.setBalance(balance);
         return balance;
     }
