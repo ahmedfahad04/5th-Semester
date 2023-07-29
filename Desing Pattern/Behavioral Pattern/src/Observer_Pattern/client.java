@@ -5,5 +5,6 @@ public class client {
         ClockTimer timer = new ClockTimer();
         AnalogClock analogclock = new AnalogClock(timer);
         DigitalClock digitalclock = new DigitalClock(timer);
+        timer.Tick();
     }
 }
